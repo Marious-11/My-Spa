@@ -1,12 +1,13 @@
 import { Button } from "@nextui-org/react";
 import React from "react";
 import DIV from "../Layout/DIV";
+import ButtonCore from "../Layout/Core/ButtonCore";
 
 const DataJson = [{ id: 123 }, { id: 124 }, { id: 125 }];
 function AboutComponents() {
   return (
     <DIV position="bottom">
-      <section className="w-full flex flex-col gap-10 max-w-6xl mx-auto py-5 my-10">
+      <section className="w-full flex flex-col gap-10 max-w-6xl px-10 mx-auto py-5 my-10">
         <div className="flex flex-col gap-5">
           <p className="text-[32px] font-semibold">What we offer</p>
           <div className="flex justify-between text-[14px]  font-light">
@@ -17,13 +18,11 @@ function AboutComponents() {
               Phan always prioritizes the quality of services and customer
               satisfaction.
             </p>
-            <Button
-              className="w-[20%] text-white"
-              radius="full"
-              color="warning"
+            <ButtonCore
+              classNames="w-[20%] "
             >
               Learn more
-            </Button>
+            </ButtonCore>
           </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">

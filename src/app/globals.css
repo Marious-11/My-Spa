@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --gradient-main: linear-gradient(90deg, #e0cd72 0%, #e7d987 48%, #c69e48 100%);
 }
 /* 
 @media (prefers-color-scheme: dark) {
@@ -15,7 +16,9 @@
     --background-end-rgb: 0, 0, 0;
   }
 } */
-
+.bg-gradient-main {
+  background: var(--gradient-main);
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -42,5 +45,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: max-content;
+  width: fit-content;
 
 }

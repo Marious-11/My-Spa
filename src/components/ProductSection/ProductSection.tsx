@@ -9,7 +9,7 @@ const DataJson = [
 ];
 function ProductSection() {
   return (
-    <section className="max-w-6xl mx-auto flex flex-col my-10 bg-transparent">
+    <section className="max-w-6xl mx-auto flex flex-col my-10 bg-transparent px-10 gap-20 lg:gap-0">
       {DataJson.map((item, index) => (
         <DIV position={(index+1)%2 == 0 ? "left" : "right"}><ProductItem position={(index + 1) % 2 == 0 ? "left" : "right"} /></DIV>
         

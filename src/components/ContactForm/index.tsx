@@ -33,7 +33,7 @@ function ContactForm() {
   };
 
   return (
-    <section className="max-w-6xl mx-auto my-5  flex flex-col gap-5 ">
+    <section className="max-w-6xl mx-auto my-5  flex flex-col gap-5 px-10 w-full ">
       <p className="text-[32px] font-semibold text-center">Contact</p>
       <div>
         <section className="flex flex-col gap-5 bg-white/20 backdrop-blur-sm p-5 rounded-xl shadow">
@@ -85,7 +85,7 @@ function ContactForm() {
           />
 
           <div className="flex justify-end">
-            <Button className="w-full lg:w-[200px] text-white" color="warning" onClick={() => sendEmail()}>
+            <Button className="w-full lg:w-[200px] text-black bg-gradient-main hover:text-white duration-300 " color="warning" onClick={() => sendEmail()}>
               Submit
             </Button>
           </div>

@@ -1,5 +1,6 @@
 // tailwind.config.js
-import {nextui} from "@nextui-org/react";
+import { nextui } from "@nextui-org/react";
+import { warn } from "console";
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -10,15 +11,22 @@ const config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
- 
+
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'gradient-main': 'var(--gradient-main)',
+        backdrop: 'linear-gradient(0deg, rgba(17, 19, 19, 0.60) 0%, rgba(17, 19, 19, 0.60) 100%)',
+        // 'gradient-conic':
+        //   'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+    },
   },
   darkMode: "class",
-  plugins: [nextui()]
-}
+  plugins: [nextui()],
+};
 
 export default config;
