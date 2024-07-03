@@ -6,7 +6,7 @@ import React from "react";
 
 function page() {
   return (
-    <section className="mx-auto h-[100vh]">
+    <section className="mx-auto h-[100vh]" id="contact">
       {/* <BannerComponents /> */}
 
       <div className="mt-28 w-screen">

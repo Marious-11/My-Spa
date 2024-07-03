@@ -1,44 +1,59 @@
-import { Button } from "@nextui-org/react";
-import Image from "next/image";
+import { Button, Image } from "@nextui-org/react";
 import React from "react";
 import ButtonCore from "../Layout/Core/ButtonCore";
-
-function ProductItem({ position }: { position: "left" | "right" }) {
+import Link from "next/link";
+import "swiper/css";
+import BannerProducts from "../Banner/BannerProducts";
+function ProductItem({
+  position,
+  title,
+  slug,
+  shortDescription,
+  fee,
+}: {
+  position: "left" | "right";
+  title: String;
+  slug: String;
+  shortDescription: String;
+  fee: String;
+}) {
   return (
     <section className="flex flex-col lg:flex-row justify-between items-center  ">
       {position == "left" && (
-        <div className="w-full lg:w-[500px]">
+        <div className="w-full lg:w-[400px] rounded-xl bg-yellow-100/20">
           <Image
+            isBlurred
             src={"/product.PNG"}
             width={1920}
             height={1080}
             alt=""
-            className="rounded-xl"
+            className="rounded-xl origin-bottom hover:-rotate-12"
           />
         </div>
       )}
-      <div className="w-full flex flex-col gap-2 lg:w-[500px] order-2 lg:order-1">
-        <p className="text-[32px] font-semibold">Head Spa</p>
-        <p>
-          Dưỡng sinh là phương pháp chăm sóc sức khỏe cổ truyền kết hợp giữa y
-          học cổ truyền và các phương pháp trị liệu hiện đại. Gội đầu dưỡng sinh
-          không chỉ là việc làm sạch tóc mà còn là một trải nghiệm thư giãn và
-          chăm sóc toàn diện cho sức khỏe của bạn. Phương pháp này thường bắt
-          đầu bằng việc sử dụng các loại thảo dược thiên nhiên và tinh dầu để
-          làm sạch da đầu và tóc, giúp loại bỏ bụi bẩn, bã nhờn, và các tạp chất
-          tích tụ.
-        </p>
+      <div className="w-full flex flex-col gap-2 lg:w-[500px] order-2 lg:order-1 h-full justify-center">
+        <p className="text-[32px] font-semibold">{title}</p>
+        <p>{shortDescription}</p>
+        <p className="font-semibold">{fee}</p>
 
-        <ButtonCore classNames="w-[200px] mt-5  ">Learn more</ButtonCore>
+        <ButtonCore classNames="w-[200px] mt-5  ">
+          <Link
+            href={`/products/${slug}`}
+            className="w-full h-full flex items-center justify-center font-semibold"
+          >
+            Learn more
+          </Link>
+        </ButtonCore>
       </div>
       {position == "right" && (
-        <div className="w-[300px] lg:w-[500px] order-1 lg:order-2">
+        <div className="w-full lg:w-[400px] order-1 lg:order-2 bg-yellow-100/20 ">
           <Image
+            isBlurred
             src={"/product.PNG"}
             width={1920}
             height={1080}
             alt=""
-            className="rounded-xl"
+            className="rounded-xl origin-bottom hover:rotate-12"
           />
         </div>
       )}

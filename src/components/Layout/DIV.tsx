@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 function DIV({
   children,
@@ -10,12 +10,15 @@ function DIV({
   children: React.ReactNode;
   position: "top" | "bottom" | "left" | "right";
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false });
   if (position === "top") {
     return (
       <motion.div
+        ref={ref}
         initial={{ y: "10vh", opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        animate={isInView ? { y: 0, opacity: 1 } : { y: "10vh", opacity: 0 }}
+        transition={{ delay: 0.1, duration: 0.8 }}
         className="w-full"
       >
         {children}
@@ -26,9 +29,10 @@ function DIV({
   if (position === "bottom") {
     return (
       <motion.div
+        ref={ref}
         initial={{ y: "-10vh", opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        animate={isInView ? { y: 0, opacity: 1 } : { y: "-10vh", opacity: 0 }}
+        transition={{ delay: 0.1, duration: 0.8 }}
       >
         {children}
       </motion.div>
@@ -38,9 +42,10 @@ function DIV({
   if (position === "left") {
     return (
       <motion.div
-        initial={{ x: "100vw", opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        ref={ref}
+        initial={{ x: "10vw", opacity: 0 }}
+        animate={isInView ? { x: 0, opacity: 1 } : { x: "-10vw", opacity: 0 }}
+        transition={{ delay: 0.1, duration: 0.8 }}
       >
         {children}
       </motion.div>
@@ -50,9 +55,10 @@ function DIV({
   if (position === "right") {
     return (
       <motion.div
-        initial={{ x: "-100vw", opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        ref={ref}
+        initial={{ x: "-10vw", opacity: 0 }}
+        animate={isInView ? { x: 0, opacity: 1 } : { x: "-10vw", opacity: 0 }}
+        transition={{ delay: 0.1, duration: 0.8 }}
       >
         {children}
       </motion.div>

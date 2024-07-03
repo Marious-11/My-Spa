@@ -6,12 +6,13 @@ import ProductSection from "@/components/ProductSection/ProductSection";
 
 export default function Home() {
   return (
-    <section className="mx-auto">
+    <section className="mx-auto bgBody font-sans">
+      
       <BannerComponents />
 
       <AboutComponents />
       <ProductSection />
-      <ContactForm/>
+      {/* <ContactForm/> */}
     </section>
   );
 }

@@ -18,10 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bgBody ${inter.className}`}>
+      <body className={` ${inter.className}`}>
         <Providers>
-          <section className="relative bgBody flex flex-col items-center mx-auto min-w-[100vw] bg-white h-[100vh] ">
-            <HeaderComponents />
+          <section className="relative  flex flex-col font-sans items-center mx-auto min-w-[100vw] bg-white h-[100vh] ">
+          <HeaderComponents />
 
             {children}
           </section>
